@@ -14,7 +14,7 @@
         <!--MakeMove-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="MakeMove" customClass="MakeMove" customModule="RockPaperScissors" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="MakeMove" customClass="MakeMoveViewController" customModule="RockPaperScissors" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -67,10 +67,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--Game Result-->
+        <!--Game Result View Controller-->
         <scene sceneID="vUu-QA-1Le">
             <objects>
-                <viewController id="1SA-ll-4xQ" customClass="GameResult" customModule="RockPaperScissors" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1SA-ll-4xQ" customClass="GameResultViewController" customModule="RockPaperScissors" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0TL-JT-0LA"/>
                         <viewControllerLayoutGuide type="bottom" id="9bL-xL-tel"/>
@@ -82,12 +82,23 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XI0-Bt-Cdf">
                                 <rect key="frame" x="16" y="42" width="343" height="583.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result Goes Here" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daX-vI-Tii">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VMv-o1-gMX">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="57.5"/>
-                                        <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Winner:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="daX-vI-Tii">
+                                                <rect key="frame" x="0.0" y="0.0" width="167.5" height="57.5"/>
+                                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdE-nm-OT7">
+                                                <rect key="frame" x="175.5" y="0.0" width="167.5" height="57.5"/>
+                                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="16"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yqC-le-5Ja">
                                         <rect key="frame" x="0.0" y="67.5" width="343" height="200"/>
                                         <constraints>
@@ -150,6 +161,12 @@
                             <constraint firstItem="XI0-Bt-Cdf" firstAttribute="leading" secondItem="syK-3Q-sTM" secondAttribute="leadingMargin" id="lCd-an-xsh"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="compImage" destination="jxW-Ui-sze" id="noQ-ZU-gt3"/>
+                        <outlet property="playerImage" destination="oqJ-Tt-4vq" id="T6T-me-O13"/>
+                        <outlet property="resultImage" destination="yqC-le-5Ja" id="3fR-4h-FJ3"/>
+                        <outlet property="resultLabel" destination="xdE-nm-OT7" id="hXe-Am-Ii9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuK-AD-yjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

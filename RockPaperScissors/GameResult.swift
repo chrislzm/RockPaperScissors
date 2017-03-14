@@ -8,8 +8,13 @@
 
 import UIKit
 
-class GameResult: UIViewController {
+class GameResultViewController: UIViewController {
 
+    @IBOutlet var resultLabel:UILabel!
+    @IBOutlet var resultImage:UIImageView!
+    @IBOutlet var playerImage:UIImageView!
+    @IBOutlet var compImage:UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,5 +36,12 @@ class GameResult: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    /**
+     *    dismiss this view controller
+     */
+    func dismiss() {
+        self.dismiss(animated: true, completion: nil)
+    }
 
 }

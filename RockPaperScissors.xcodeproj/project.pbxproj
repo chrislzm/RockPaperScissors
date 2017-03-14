@@ -41,7 +41,6 @@
 			isa = PBXGroup;
 			children = (
 				A5A63FB61E77AC2000BAD576 /* RockPaperScissors */,
-				A5A63FB51E77AC2000BAD576 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
@@ -51,6 +50,7 @@
 				A5A63FB41E77AC2000BAD576 /* RockPaperScissors.app */,
 			);
 			name = Products;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		A5A63FB61E77AC2000BAD576 /* RockPaperScissors */ = {
@@ -63,6 +63,7 @@
 				A5A63FC01E77AC2000BAD576 /* LaunchScreen.storyboard */,
 				A5A63FC31E77AC2000BAD576 /* Info.plist */,
 				A5A63FC91E77AEB100BAD576 /* GameResult.swift */,
+				A5A63FB51E77AC2000BAD576 /* Products */,
 			);
 			path = RockPaperScissors;
 			sourceTree = "<group>";

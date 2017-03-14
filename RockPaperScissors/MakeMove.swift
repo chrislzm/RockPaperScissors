@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MakeMove: UIViewController {
+class MakeMoveViewController: UIViewController {
 
     enum RockPaperScissorMove: Int {
         case rock = 0, paper, scissors
@@ -30,6 +30,21 @@ class MakeMove: UIViewController {
         
         let result = returnWinner(playerMove, compMove)
         print("Result: \(result). Player: \(playerMove), Computer: \(compMove)")
+        
+        switch playerMove {
+        case .paper:
+            // Present GameResult viewcontroller in all code
+            var controller:GameResultViewController
+            controller = self.storyboard?.instantiateViewController(withIdentifier: "GameResultViewController") as! GameResultViewController
+            break
+        case .rock:
+            // Present GameResult viewcontroller via segue by identifier
+            break
+        case .scissors:
+            // Present GameResult viewcontroller via automatically triggered segue
+            break
+        default: break
+        }
     }
 
     func returnWinner (_ playerMove:RockPaperScissorMove, _ compMove:RockPaperScissorMove) -> Winner {
