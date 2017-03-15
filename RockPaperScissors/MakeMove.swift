@@ -18,18 +18,15 @@ class MakeMoveViewController: UIViewController {
     
     @IBAction func moveMade(_ sender:AnyObject) {
         let button = sender as! UIButton
-        
+
         let playerMove = moves[button.tag]
-        let compMove = moves[Int(arc4random() % 3)]
-        let (result,resultImage) = returnWinner(playerMove, compMove)
-        
-        print("Result: \(result). Player: \(playerMove), Computer: \(compMove)")
         
         switch playerMove {
         case "paper":
-            // Present GameResult viewcontroller in all code
+            // Present GameResult viewcontroller in all code as per requirements
             var controller:GameResultViewController
             controller = self.storyboard?.instantiateViewController(withIdentifier: "GameResultViewController") as! GameResultViewController
+            let (compMove,result,resultImage) = playGame(playerMove)
             controller.resultLabelText = result
             controller.resultImageName = resultImage
             controller.playerImageName = playerMove
@@ -41,16 +38,25 @@ class MakeMoveViewController: UIViewController {
             print("compImageName set as: \(controller.compImageName)")
             self.present(controller, animated: true, completion: nil)
         case "rock":
-            // Present GameResult viewcontroller via segue by identifier
+            // Present GameResult viewcontroller via segue by identifier as per requirements
+            performSegue(withIdentifier: "hitRock", sender: self)
             break
         case "scissors":
-            // Present GameResult viewcontroller via automatically triggered segue
+            // Present GameResult viewcontroller via automatically triggered segue as per requirements
             break
         default: break
         }
     }
 
-    func returnWinner (_ playerMove:String, _ compMove:String) -> (String,String) {
+    func playGame(_ playerMove:String) -> (String,String,String) {
+        let compMove = moves[Int(arc4random() % 3)]
+        let (result,resultImage) = returnResultAndImage(playerMove, compMove)
+        print("Result: \(result). Player: \(playerMove), Computer: \(compMove)")
+        return (compMove,result,resultImage)
+        
+    }
+    
+    func returnResultAndImage (_ playerMove:String, _ compMove:String) -> (String,String) {
     if playerMove == "rock" && compMove == "scissors" {
         return ("Player","RockCrushesScissors")
     } else if playerMove == "scissors" && compMove == "paper" {
@@ -66,6 +72,22 @@ class MakeMoveViewController: UIViewController {
     } else {
         return ("Tie","itsATie")
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var playerMove:String
+        if segue.identifier == "hitRock" {
+            playerMove = "rock"
+        } else { // Will be scissors
+            playerMove = "scissors"
+        }
+        
+        let controller = segue.destination as! GameResultViewController
+        let (compMove,result,resultImage) = playGame(playerMove)
+        controller.resultLabelText = result
+        controller.resultImageName = resultImage
+        controller.playerImageName = playerMove
+        controller.compImageName = compMove
     }
 }
 
