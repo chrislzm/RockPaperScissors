@@ -18,7 +18,6 @@ class MakeMoveViewController: UIViewController {
     
     @IBAction func moveMade(_ sender:AnyObject) {
         let button = sender as! UIButton
-
         let playerMove = moves[button.tag]
         
         switch playerMove {
@@ -31,19 +30,10 @@ class MakeMoveViewController: UIViewController {
             controller.resultImageName = resultImage
             controller.playerImageName = playerMove
             controller.compImageName = compMove
-            
-            print("resultLabelText set as: \(controller.resultLabelText)")
-            print("resultImageName set as: \(controller.resultImageName)")
-            print("playerImageName set as: \(controller.playerImageName)")
-            print("compImageName set as: \(controller.compImageName)")
             self.present(controller, animated: true, completion: nil)
         case "rock":
             // Present GameResult viewcontroller via segue by identifier as per requirements
             performSegue(withIdentifier: "hitRock", sender: self)
-            break
-        case "scissors":
-            // Present GameResult viewcontroller via automatically triggered segue as per requirements
-            break
         default: break
         }
     }
@@ -51,9 +41,7 @@ class MakeMoveViewController: UIViewController {
     func playGame(_ playerMove:String) -> (String,String,String) {
         let compMove = moves[Int(arc4random() % 3)]
         let (result,resultImage) = returnResultAndImage(playerMove, compMove)
-        print("Result: \(result). Player: \(playerMove), Computer: \(compMove)")
         return (compMove,result,resultImage)
-        
     }
     
     func returnResultAndImage (_ playerMove:String, _ compMove:String) -> (String,String) {
@@ -74,6 +62,7 @@ class MakeMoveViewController: UIViewController {
         }
     }
     
+    // Will only be called if player hits rock or scissors buttons
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var playerMove:String
         if segue.identifier == "hitRock" {
