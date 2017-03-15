@@ -14,20 +14,35 @@ class MakeMoveViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    // Present GameResultViewController in all code, as per requirements
     @IBAction func playPaper(_ sender:AnyObject) {
         let playerMove = "paper"
-        
-        // Present GameResult viewcontroller in all code as per requirements
         var controller:GameResultViewController
         controller = self.storyboard?.instantiateViewController(withIdentifier: "GameResultViewController") as! GameResultViewController
         playGamePushResults(playerMove,controller)
         self.present(controller, animated: true, completion: nil)
     }
 
+    // Present GameResultViewController using code + segue, as per requirements
     @IBAction func playRock(_ sender:AnyObject) {
         performSegue(withIdentifier: "playRock", sender: self)
     }
-
+    
+    // This method will only be called if player plays rock or scissors
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        var playerMove:String
+        
+        if segue.identifier == "playRock" {
+            playerMove = "rock"
+        } else { // Will be scissors
+            playerMove = "scissors"
+        }
+        
+        let controller = segue.destination as! GameResultViewController
+        playGamePushResults(playerMove,controller)
+    }
+    
+    // Plays the game out and pushes results to the GameResultViewController
     func playGamePushResults(_ playerMove:String,_ controller:GameResultViewController) {
         let moves = ["rock","paper","scissors"]
         let compMove = moves[Int(arc4random() % 3)]
@@ -38,6 +53,7 @@ class MakeMoveViewController: UIViewController {
         controller.compImageName = compMove
     }
     
+    // Takes a player move and computer move, returns the result + associated image name
     func returnResultAndImage (_ playerMove:String, _ compMove:String) -> (String,String) {
         if playerMove == "rock" && compMove == "scissors" {
             return ("Player","RockCrushesScissors")
@@ -54,20 +70,6 @@ class MakeMoveViewController: UIViewController {
         } else {
             return ("Tie","itsATie")
         }
-    }
-    
-    // Will only be called if player hits rock or scissors buttons
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        var playerMove:String
-        
-        if segue.identifier == "playRock" {
-            playerMove = "rock"
-        } else { // Will be scissors
-            playerMove = "scissors"
-        }
-        
-        let controller = segue.destination as! GameResultViewController
-        playGamePushResults(playerMove,controller)
     }
 }
 

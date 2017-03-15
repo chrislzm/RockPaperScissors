@@ -10,11 +10,13 @@ import UIKit
 
 class GameResultViewController: UIViewController {
 
+    // Label and ImageViews
     @IBOutlet var resultLabel:UILabel!
     @IBOutlet var resultImageView:UIImageView!
     @IBOutlet var playerImageView:UIImageView!
     @IBOutlet var compImageView:UIImageView!
     
+    // Stores data used for respective Label and ImageView
     var resultLabelText:String?
     var resultImageName:String?
     var playerImageName:String?
