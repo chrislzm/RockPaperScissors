@@ -10,13 +10,7 @@ import UIKit
 
 class MakeMoveViewController: UIViewController {
 
-    enum RockPaperScissorMove: Int {
-        case rock = 0, paper, scissors
-    }
-    
-    enum Winner: Int {
-        case player = 0, computer, tie
-    }
+    let moves = ["rock","paper","scissors"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,35 +19,52 @@ class MakeMoveViewController: UIViewController {
     @IBAction func moveMade(_ sender:AnyObject) {
         let button = sender as! UIButton
         
-        let playerMove = RockPaperScissorMove.init(rawValue: button.tag)!
-        let compMove = RockPaperScissorMove.init(rawValue: Int(arc4random() % 3))!
+        let playerMove = moves[button.tag]
+        let compMove = moves[Int(arc4random() % 3)]
+        let (result,resultImage) = returnWinner(playerMove, compMove)
         
-        let result = returnWinner(playerMove, compMove)
         print("Result: \(result). Player: \(playerMove), Computer: \(compMove)")
         
         switch playerMove {
-        case .paper:
+        case "paper":
             // Present GameResult viewcontroller in all code
             var controller:GameResultViewController
             controller = self.storyboard?.instantiateViewController(withIdentifier: "GameResultViewController") as! GameResultViewController
-            break
-        case .rock:
+            controller.resultLabelText = result
+            controller.resultImageName = resultImage
+            controller.playerImageName = playerMove
+            controller.compImageName = compMove
+            
+            print("resultLabelText set as: \(controller.resultLabelText)")
+            print("resultImageName set as: \(controller.resultImageName)")
+            print("playerImageName set as: \(controller.playerImageName)")
+            print("compImageName set as: \(controller.compImageName)")
+            self.present(controller, animated: true, completion: nil)
+        case "rock":
             // Present GameResult viewcontroller via segue by identifier
             break
-        case .scissors:
+        case "scissors":
             // Present GameResult viewcontroller via automatically triggered segue
             break
         default: break
         }
     }
 
-    func returnWinner (_ playerMove:RockPaperScissorMove, _ compMove:RockPaperScissorMove) -> Winner {
-        if (playerMove == .rock && compMove == .scissors || playerMove == .scissors && compMove == .paper || playerMove == .paper && compMove == .rock) {
-            return Winner.player
-        } else if (compMove == .rock && playerMove == .scissors || compMove == .scissors && playerMove == .paper || compMove == .paper && playerMove == .rock) {
-            return Winner.computer
-        } else {
-            return Winner.tie
+    func returnWinner (_ playerMove:String, _ compMove:String) -> (String,String) {
+    if playerMove == "rock" && compMove == "scissors" {
+        return ("Player","RockCrushesScissors")
+    } else if playerMove == "scissors" && compMove == "paper" {
+        return ("Player","ScissorsCutPaper")
+    } else if playerMove == "paper" && compMove == "rock" {
+            return ("Player","PaperCoversRock")
+    } else if compMove == "rock" && playerMove == "scissors" {
+        return ("Computer","RockCrushesScissors")
+    } else if compMove == "scissors" && playerMove == "paper" {
+        return ("Computer","ScissorsCutPaper")
+    } else if compMove == "paper" && playerMove == "rock" {
+        return ("Computer","PaperCoversRock")
+    } else {
+        return ("Tie","itsATie")
         }
     }
 }

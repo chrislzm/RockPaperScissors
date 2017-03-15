@@ -11,21 +11,24 @@ import UIKit
 class GameResultViewController: UIViewController {
 
     @IBOutlet var resultLabel:UILabel!
-    @IBOutlet var resultImage:UIImageView!
-    @IBOutlet var playerImage:UIImageView!
-    @IBOutlet var compImage:UIImageView!
+    @IBOutlet var resultImageView:UIImageView!
+    @IBOutlet var playerImageView:UIImageView!
+    @IBOutlet var compImageView:UIImageView!
+    
+    var resultLabelText:String?
+    var resultImageName:String?
+    var playerImageName:String?
+    var compImageName:String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        resultLabel.text = resultLabelText
+        resultImageView.image = UIImage(named: resultImageName!)
+        playerImageView.image = UIImage(named: playerImageName!)
+        compImageView.image = UIImage(named: compImageName!)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     /*
     // MARK: - Navigation

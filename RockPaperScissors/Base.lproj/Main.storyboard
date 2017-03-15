@@ -14,7 +14,7 @@
         <!--MakeMove-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" userLabel="MakeMove" customClass="MakeMoveViewController" customModule="RockPaperScissors" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MakeMove" id="BYZ-38-t0r" userLabel="MakeMove" customClass="MakeMoveViewController" customModule="RockPaperScissors" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -70,7 +70,7 @@
         <!--Game Result View Controller-->
         <scene sceneID="vUu-QA-1Le">
             <objects>
-                <viewController id="1SA-ll-4xQ" customClass="GameResultViewController" customModule="RockPaperScissors" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameResultViewController" id="1SA-ll-4xQ" customClass="GameResultViewController" customModule="RockPaperScissors" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0TL-JT-0LA"/>
                         <viewControllerLayoutGuide type="bottom" id="9bL-xL-tel"/>
@@ -162,15 +162,15 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="compImage" destination="jxW-Ui-sze" id="noQ-ZU-gt3"/>
-                        <outlet property="playerImage" destination="oqJ-Tt-4vq" id="T6T-me-O13"/>
-                        <outlet property="resultImage" destination="yqC-le-5Ja" id="3fR-4h-FJ3"/>
+                        <outlet property="compImageView" destination="jxW-Ui-sze" id="K9W-sR-f2J"/>
+                        <outlet property="playerImageView" destination="oqJ-Tt-4vq" id="7ZG-kt-xoH"/>
+                        <outlet property="resultImageView" destination="yqC-le-5Ja" id="MYq-To-nJq"/>
                         <outlet property="resultLabel" destination="xdE-nm-OT7" id="hXe-Am-Ii9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuK-AD-yjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="749.60000000000002" y="36.431784107946029"/>
+            <point key="canvasLocation" x="889" y="124"/>
         </scene>
     </scenes>
     <resources>
