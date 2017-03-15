@@ -36,14 +36,14 @@
                                         <rect key="frame" x="134" y="108" width="75" height="65"/>
                                         <state key="normal" image="rock"/>
                                         <connections>
-                                            <action selector="moveMade:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eMX-SU-9N7"/>
+                                            <action selector="playRock:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vzW-eA-8sg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SMs-i6-Gyw">
                                         <rect key="frame" x="134" y="193" width="75" height="65"/>
                                         <state key="normal" image="paper"/>
                                         <connections>
-                                            <action selector="moveMade:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fek-g8-pD6"/>
+                                            <action selector="playPaper:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oub-H0-wG5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8yp-Mu-Ixa">

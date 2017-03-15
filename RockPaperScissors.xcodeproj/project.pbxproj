@@ -57,12 +57,12 @@
 			isa = PBXGroup;
 			children = (
 				A5A63FB71E77AC2000BAD576 /* AppDelegate.swift */,
+				A5A63FC91E77AEB100BAD576 /* GameResult.swift */,
 				A5A63FB91E77AC2000BAD576 /* MakeMove.swift */,
 				A5A63FBB1E77AC2000BAD576 /* Main.storyboard */,
 				A5A63FBE1E77AC2000BAD576 /* Assets.xcassets */,
 				A5A63FC01E77AC2000BAD576 /* LaunchScreen.storyboard */,
 				A5A63FC31E77AC2000BAD576 /* Info.plist */,
-				A5A63FC91E77AEB100BAD576 /* GameResult.swift */,
 				A5A63FB51E77AC2000BAD576 /* Products */,
 			);
 			path = RockPaperScissors;
@@ -305,6 +305,7 @@
 				A5A63FC81E77AC2000BAD576 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
